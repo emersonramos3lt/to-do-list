@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #E7E7E7;
+    --danger: #C5283D;
+    --dangerHover: #940b1e;
+}
+
+.container.adaptive {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background);
+    padding: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background-color: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.todo-app h2 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    padding: 1rem;
+    color: #000;
+    font-size: 1.1rem;
+    border: 1px solid #111;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-right: .5rem;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 17px 50px;
+    background-color: #111;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+button:hover {
+    background-color: #3a3a3a;
+}
+
+ul li {
+    list-style-type: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-image: url(../images/unchecked.svg);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(../images/check.svg);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--danger);
+    border-radius: 100%;
+    line-height: 40px;
+    text-align: center;
+    transition: background-color .2s;
+}
+
+ul li span:hover {
+    background-color: var(--dangerHover);
+}
+
+@media (max-width: 550px) {
+    .row {
+        align-items: start;
+        flex-flow: column wrap;
+    }
+
+    input {
+        flex: 0;
+        margin-bottom: .5rem;
+    }
+
+    ul li {
+        margin-bottom: 1rem;
+    }
+}
